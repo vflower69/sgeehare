@@ -1,1 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Famous Tea Collection | SUGi Hair</title>
+
+    <meta name="description" content="The SUGi Hair Famous Tea Collection.">
+
+    <meta name="theme-color" content="#F8F4EA">
+
+    <link rel="stylesheet" href="assets/tea.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=Noto+Serif+SC:wght@300;400&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+        <a class="logo gold-text" href="index.html" aria-label="SUGi Hair, home">SUGi Hair</a>
+
+        <nav aria-label="Collections">
+            <a href="fivecolor.html">Five-Color Collection</a>
+            <a href="temple.html">Temple of Heaven Collection</a>
+            <a href="tea.html" aria-current="page">Famous Tea Collection</a>
+        </nav>
+
+    </header>
+
+    <main id="main">
+
+        <section class="page-intro solo">
+
+            <h1 class="gold-text sheen">名茶系 — Famous Tea Collection</h1>
+
+            <p class="lede">
+                Inspired by Chinese tea culture, from the delicate colors
+                of tea leaves to the warmth of a freshly prepared cup.
+            </p>
+
+            <div class="swatches">
+
+                <figure class="swatch">
+
+                    <div class="swatch-frame">
+                        <img src="images/tea-jadeite-green.png"
+                            alt="Jadeite green"
+                            loading="lazy"
+                            onerror="this.hidden = true">
+                    </div>
+
+                    <figcaption><span lang="zh-Hans">翡翠绿</span>--Jadeite Green</figcaption>
+
+                </figure>
+
+                <figure class="swatch">
+
+                    <div class="swatch-frame">
+                        <img src="images/tea-milk-tea-brown.png"
+                            alt="Milk tea brown"
+                            loading="lazy"
+                            onerror="this.hidden = true">
+                    </div>
+
+                    <figcaption><span lang="zh-Hans">奶茶咖</span>--Milk Tea Brown</figcaption>
+
+                </figure>
+
+            </div>
+
+            <div class="brand-story">
+
+                <p class="eyebrow">Brand story</p>
+
+                <p class="brand-line" lang="zh-Hans">一盏清茶，一抹本色。</p>
+
+                <p class="lede">A cup of clear tea; a touch of natural color.</p>
+
+            </div>
+
+            <a class="back-link" href="collections.html">Back to the collection</a>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER / CONTACT -->
+
+    <footer id="contact" class="footer">
+
+        <p class="footer-logo gold-text">SUGi Hair</p>
+
+        <p>Ultra-luxury haircare</p>
+
+        <p>
+            <a class="contact-link" href="mailto:hello@sugihairproducts.com" data-open-contact>Send us a message</a>
+        </p>
+
+        <!-- Replace with your real inquiry address -->
+        <p>hello@sugihairproducts.com</p>
+
+        <small>
+            &copy; <span id="year">2026</span> SUGi Hair. All rights reserved.
+        </small>
+
+    </footer>
+
+    <!-- CONTACT POP-UP -->
+
+    <dialog class="contact-dialog" id="contact-dialog" aria-labelledby="contact-title">
+
+        <!--
+            Messages are not connected to a service yet. Until you paste a form
+            service URL (Formspree, Basin, etc.) into data-endpoint, Submit opens
+            the visitor's email app, addressed to data-mailto.
+        -->
+        <form class="contact-form" method="post" data-endpoint="" data-mailto="hello@sugihairproducts.com" novalidate>
+
+            <button class="contact-close" type="button" data-close-contact>Close</button>
+
+            <h2 id="contact-title" class="gold-text">Contact</h2>
+
+            <p class="lede">Send us a note and we will reply by email.</p>
+
+            <div class="field">
+                <label for="contact-name">Name</label>
+                <input id="contact-name" name="name" type="text" autocomplete="name" required>
+            </div>
+
+            <div class="field">
+                <label for="contact-email">Email</label>
+                <input id="contact-email" name="email" type="email" autocomplete="email" required>
+            </div>
+
+            <div class="field">
+                <label for="contact-collection">Collection Name <span class="optional">optional</span></label>
+                <input id="contact-collection" name="collection" type="text">
+            </div>
+
+            <div class="field">
+                <label for="contact-product">Product Name <span class="optional">optional</span></label>
+                <input id="contact-product" name="product" type="text">
+            </div>
+
+            <div class="field">
+                <label for="contact-subject">Subject</label>
+                <input id="contact-subject" name="subject" type="text" required>
+            </div>
+
+            <div class="field">
+                <label for="contact-body">Body</label>
+                <textarea id="contact-body" name="body" rows="5" required></textarea>
+            </div>
+
+            <div class="form-actions">
+                <button class="submit-button" type="submit">Submit</button>
+            </div>
+
+            <p class="contact-status" role="status" aria-live="polite"></p>
+
+        </form>
+
+    </dialog>
+
+    <script src="assets/tea.js"></script>
+
+</body>
+
+</html>
