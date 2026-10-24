@@ -1,1 +1,632 @@
+/* ==========================================================
+   SUGi Hair, Temple of Heaven Collection page
+   Ivory, metallic gold lettering, ultra-luxury minimalism.
+   Matches the rest of the site; this file is self-contained.
+   ========================================================== */
 
+:root {
+    --ivory: #F8F4EA;
+    --ink: #3A3128;
+    --ink-soft: #5B5043;
+
+    /* Gold, from darkest to lightest */
+    --gold-deep: #6E5222;
+    --gold-text: #7A5B22;   /* solid gold for small text, 5:1 on ivory */
+    --gold-mid: #94702A;
+    --gold-light: #C9A64F;
+
+    --line: rgba(122, 91, 34, 0.28);
+
+    --serif: "Cormorant Garamond", "Cormorant", Georgia, "Times New Roman", serif;
+    /* Same Latin look, with Chinese characters set in a matching serif */
+    --serif-cjk: "Cormorant Garamond", "Cormorant", Georgia, "Times New Roman", "Noto Serif SC", "Songti SC", "SimSun", serif;
+    --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+    --gutter: clamp(1.5rem, 6vw, 6rem);
+    --header-height: 5rem;
+}
+
+/* ---------- Base ---------- */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--header-height);
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    background: var(--ivory);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2 {
+    margin: 0;
+    font-family: var(--serif);
+    font-weight: 300;
+    line-height: 1.1;
+}
+
+p {
+    margin: 0 0 1.25rem;
+}
+
+a {
+    color: inherit;
+}
+
+:focus-visible {
+    outline: 2px solid var(--gold-deep);
+    outline-offset: 4px;
+}
+
+.skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -4rem;
+    z-index: 20;
+    padding: 0.6rem 1rem;
+    background: var(--ivory);
+    color: var(--gold-deep);
+    text-decoration: none;
+}
+
+.skip-link:focus {
+    top: 1rem;
+}
+
+/* ---------- Metallic gold lettering ---------- */
+
+.gold-text {
+    width: fit-content;
+    color: var(--gold-text);
+}
+
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+    .gold-text {
+        background-image: linear-gradient(
+            100deg,
+            var(--gold-deep) 0%,
+            var(--gold-mid) 35%,
+            var(--gold-light) 50%,
+            var(--gold-mid) 65%,
+            var(--gold-deep) 100%
+        );
+        background-size: 100% 100%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+    }
+}
+
+/* One sheen across the page title on load, then it rests. */
+.sheen {
+    background-size: 260% 100%;
+    background-position: 25% 0;
+    animation: sheen 3s ease-out 0.3s both;
+}
+
+@keyframes sheen {
+    from { background-position: 100% 0; }
+    to   { background-position: 25% 0; }
+}
+
+/* ---------- Shared type ---------- */
+
+.eyebrow {
+    margin: 0 0 1.25rem;
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    color: var(--gold-text);
+}
+
+.lede {
+    max-width: 34rem;
+    color: var(--ink-soft);
+}
+
+/* ---------- Header ---------- */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    min-height: var(--header-height);
+    padding: 0 var(--gutter);
+    background: rgba(248, 244, 234, 0.94);
+    border-bottom: 1px solid var(--line);
+}
+
+@supports (backdrop-filter: blur(8px)) {
+    .header {
+        background: rgba(248, 244, 234, 0.82);
+        backdrop-filter: blur(8px);
+    }
+}
+
+.logo {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 1.7rem;
+    letter-spacing: 0.1em;
+    line-height: 1;
+    text-decoration: none;
+}
+
+.header nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.25rem clamp(1.25rem, 3vw, 2.75rem);
+}
+
+.header nav a {
+    position: relative;
+    padding: 0.35rem 0;
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--gold-text);
+    text-decoration: none;
+}
+
+.header nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: var(--gold-text);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+}
+
+.header nav a:hover::after,
+.header nav a:focus-visible::after,
+.header nav a[aria-current="page"]::after {
+    transform: scaleX(1);
+}
+
+/* ---------- Page title ---------- */
+
+main > section {
+    padding: clamp(5rem, 12vw, 10rem) var(--gutter);
+}
+
+.page-intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 62svh;
+    padding-bottom: clamp(5rem, 12vw, 10rem);
+    text-align: center;
+}
+
+.page-intro h1 {
+    font-family: var(--serif-cjk);
+    margin: 0 auto 1.75rem;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    letter-spacing: -0.01em;
+}
+
+.page-intro .lede {
+    margin: 0 auto;
+}
+
+/* Colour swatches: two images with a centered caption beneath each */
+
+.swatches {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(1.5rem, 4vw, 3rem);
+    width: 100%;
+    max-width: 38rem;
+    margin: clamp(2.5rem, 5vw, 3.5rem) auto 0;
+}
+
+.swatch {
+    margin: 0;
+}
+
+.swatch-frame {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4 / 5;
+    background: linear-gradient(160deg, #F3ECDA 0%, #E7DABC 100%);
+}
+
+.swatch-frame img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.swatch-frame img[hidden] {
+    display: none;
+}
+
+.swatch figcaption {
+    margin-top: 1rem;
+    color: var(--gold-text);
+    font-family: var(--serif-cjk);
+    font-weight: 400;
+    font-size: 1.1rem;
+    letter-spacing: 0.04em;
+    line-height: 1.4;
+    text-align: center;
+}
+
+/* Brand story: hairline rule, Chinese line in gold, English line beneath */
+
+.brand-story {
+    width: 100%;
+    max-width: 34rem;
+    margin: clamp(2.5rem, 5vw, 3.5rem) auto 0;
+    padding-top: clamp(2rem, 4vw, 2.75rem);
+    border-top: 1px solid var(--line);
+}
+
+.brand-story .eyebrow {
+    margin-bottom: 1rem;
+}
+
+.brand-line {
+    margin: 0 0 0.75rem;
+    font-family: var(--serif-cjk);
+    font-weight: 300;
+    font-size: clamp(1.7rem, 3.4vw, 2.4rem);
+    letter-spacing: 0.08em;
+    line-height: 1.5;
+    color: var(--gold-text);
+}
+
+.brand-story .lede {
+    margin: 0 auto;
+}
+
+.back-link {
+    margin-top: 2.5rem;
+    color: var(--gold-text);
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.3em;
+}
+
+.back-link:hover {
+    color: var(--gold-deep);
+}
+
+/* ---------- Footer ---------- */
+
+.footer {
+    padding: clamp(4rem, 8vw, 6rem) var(--gutter) 3rem;
+    border-top: 1px solid var(--line);
+    text-align: center;
+    color: var(--ink-soft);
+}
+
+.footer p {
+    margin-bottom: 0.5rem;
+}
+
+.footer-logo {
+    margin: 0 auto 1rem;
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 2rem;
+    letter-spacing: 0.1em;
+    line-height: 1.1;
+}
+
+.contact-link {
+    color: var(--gold-text);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.3em;
+}
+
+.contact-link:hover {
+    color: var(--gold-deep);
+}
+
+.footer small {
+    display: block;
+    margin-top: 2.5rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+}
+
+/* ---------- Phones ---------- */
+
+@media (max-width: 600px) {
+
+    :root {
+        --header-height: 6.5rem;
+    }
+
+    .header {
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.5rem;
+        padding-block: 0.9rem;
+    }
+
+    .header nav {
+        justify-content: center;
+        gap: 0.1rem 1.4rem;
+    }
+
+    .swatches {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        max-width: 17rem;
+    }
+}
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    .sheen {
+        animation: none;
+    }
+
+    .header nav a::after {
+        transition: none;
+    }
+}
+
+/* ---------- Contact pop-up ---------- */
+
+body.modal-open {
+    overflow: hidden;
+}
+
+.contact-dialog {
+    width: min(34rem, calc(100vw - 2rem));
+    max-height: calc(100svh - 2rem);
+    margin: auto;
+    padding: 0;
+    overflow-y: auto;
+    border: 1px solid var(--line);
+    border-radius: 0;
+    background: var(--ivory);
+    color: var(--ink);
+}
+
+.contact-dialog[open] {
+    animation: dialog-in 0.25s ease both;
+}
+
+.contact-dialog::backdrop {
+    background: rgba(58, 49, 40, 0.5);
+}
+
+@keyframes dialog-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: none; }
+}
+
+.contact-form {
+    position: relative;
+    padding: clamp(1.75rem, 5vw, 3rem);
+}
+
+.contact-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.25rem;
+    padding: 0.35rem 0;
+    border: 0;
+    background: none;
+    color: var(--gold-text);
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.3em;
+    cursor: pointer;
+}
+
+.contact-close:hover {
+    color: var(--gold-deep);
+}
+
+.contact-form h2 {
+    margin-bottom: 1rem;
+    letter-spacing: -0.005em;
+    font-size: clamp(1.9rem, 4vw, 2.5rem);
+}
+
+.contact-form .lede {
+    margin-bottom: 1.75rem;
+    font-size: 0.95rem;
+}
+
+.field {
+    margin-bottom: 1.25rem;
+}
+
+.field label {
+    display: block;
+    margin-bottom: 0.15rem;
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    color: var(--gold-text);
+}
+
+.field .optional {
+    margin-left: 0.4rem;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    color: var(--ink-soft);
+}
+
+.field input,
+.field textarea {
+    display: block;
+    width: 100%;
+    padding: 0.6rem 0.1rem;
+    border: 0;
+    border-bottom: 1px solid var(--gold-text);
+    border-radius: 0;
+    background: transparent;
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1.5;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.field textarea {
+    min-height: 7rem;
+    resize: vertical;
+}
+
+.field input:focus-visible,
+.field textarea:focus-visible {
+    outline: none;
+    box-shadow: 0 1px 0 var(--gold-deep);
+    border-bottom-color: var(--gold-deep);
+}
+
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1.25rem;
+    margin-top: 1.75rem;
+}
+
+/* Green confirmation beside Submit. The page script fills it for 10 seconds, then empties it. */
+.contact-success {
+    margin: 0;
+    color: #2E7D32;
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+}
+
+.contact-success:empty {
+    display: none;
+}
+
+.contact-success:not(:empty)::before {
+    content: "\2713";
+    content: "\2713" / "";
+    margin-right: 0.45rem;
+}
+
+.submit-button {
+    padding: 0.7rem 2.1rem;
+    border: 1px solid var(--gold-deep);
+    border-radius: 0;
+    background: var(--gold-deep);
+    color: var(--ivory);
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    line-height: 1.2;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.submit-button:hover,
+.submit-button:focus-visible {
+    background: var(--gold-text);
+    border-color: var(--gold-text);
+}
+
+.submit-button:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+.contact-status {
+    min-height: 1.75rem;
+    margin: 1.25rem 0 0;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+}
+
+@media (max-width: 600px) {
+
+    /* Keep the whole contact form, Submit included, on one phone screen. */
+    .contact-form {
+        padding: 1.5rem;
+    }
+
+    .contact-form h2 {
+        margin-bottom: 0.5rem;
+    }
+
+    .contact-form .lede {
+        margin-bottom: 1.25rem;
+    }
+
+    .field {
+        margin-bottom: 0.8rem;
+    }
+
+    .field input,
+    .field textarea {
+        padding-block: 0.4rem;
+    }
+
+    .field textarea {
+        min-height: 4.5rem;
+    }
+
+    .form-actions {
+        margin-top: 1.25rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .submit-button {
+        transition: none;
+    }
+
+    .contact-dialog[open] {
+        animation: none;
+    }
+}
