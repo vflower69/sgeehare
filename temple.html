@@ -1,1 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Temple of Heaven Collection | SUGi Hair</title>
+
+    <meta name="description" content="The SUGi Hair Temple of Heaven Collection.">
+
+    <meta name="theme-color" content="#F8F4EA">
+
+    <link rel="stylesheet" href="assets/temple.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=Noto+Serif+SC:wght@300;400&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+        <a class="logo gold-text" href="index.html" aria-label="SUGi Hair, home">SUGi Hair</a>
+
+        <nav aria-label="Collections">
+            <a href="fivecolor.html">Five-Color Collection</a>
+            <a href="temple.html" aria-current="page">Temple of Heaven Collection</a>
+            <a href="tea.html">Famous Tea Collection</a>
+        </nav>
+
+    </header>
+
+    <main id="main">
+
+        <section class="page-intro solo">
+
+            <h1 class="gold-text sheen">天坛系 — Temple of Heaven Collection</h1>
+
+            <p class="lede">
+                Inspired by the blue glazed roof tiles and the elegant
+                symmetry of Beijing's Temple of Heaven.
+            </p>
+
+            <div class="swatches">
+
+                <figure class="swatch">
+
+                    <div class="swatch-frame">
+                        <img src="images/temple-azure-dragon-blue.png"
+                            alt="Azure dragon blue"
+                            loading="lazy"
+                            onerror="this.hidden = true">
+                    </div>
+
+                    <figcaption><span lang="zh-Hans">青龙蓝</span>--Azure Dragon Blue</figcaption>
+
+                </figure>
+
+                <figure class="swatch">
+
+                    <div class="swatch-frame">
+                        <img src="images/temple-deep-ink-black.png"
+                            alt="Deep ink black"
+                            loading="lazy"
+                            onerror="this.hidden = true">
+                    </div>
+
+                    <figcaption><span lang="zh-Hans">玄墨黑</span>--Deep Ink Black</figcaption>
+
+                </figure>
+
+            </div>
+
+            <div class="brand-story">
+
+                <p class="eyebrow">Brand story</p>
+
+                <p class="brand-line" lang="zh-Hans">青瓦映天，玄墨成色。</p>
+
+                <p class="lede">Blue glazed tiles meet the sky; deep ink gives form to color.</p>
+
+            </div>
+
+            <a class="back-link" href="collections.html">Back to the collection</a>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER / CONTACT -->
+
+    <footer id="contact" class="footer">
+
+        <p class="footer-logo gold-text">SUGi Hair</p>
+
+        <p>Ultra-luxury haircare</p>
+
+        <p>
+            <a class="contact-link" href="mailto:hello@sugihairproducts.com" data-open-contact>Send us a message</a>
+        </p>
+
+        <!-- Replace with your real inquiry address -->
+        <p>hello@sugihairproducts.com</p>
+
+        <small>
+            &copy; <span id="year">2026</span> SUGi Hair. All rights reserved.
+        </small>
+
+    </footer>
+
+    <!-- CONTACT POP-UP -->
+
+    <dialog class="contact-dialog" id="contact-dialog" aria-labelledby="contact-title">
+
+        <!--
+            Messages are not connected to a service yet. Until you paste a form
+            service URL (Formspree, Basin, etc.) into data-endpoint, Submit opens
+            the visitor's email app, addressed to data-mailto.
+        -->
+        <form class="contact-form" method="post" data-endpoint="" data-mailto="hello@sugihairproducts.com" novalidate>
+
+            <button class="contact-close" type="button" data-close-contact>Close</button>
+
+            <h2 id="contact-title" class="gold-text">Contact</h2>
+
+            <p class="lede">Send us a note and we will reply by email.</p>
+
+            <div class="field">
+                <label for="contact-name">Name</label>
+                <input id="contact-name" name="name" type="text" autocomplete="name" required>
+            </div>
+
+            <div class="field">
+                <label for="contact-email">Email</label>
+                <input id="contact-email" name="email" type="email" autocomplete="email" required>
+            </div>
+
+            <div class="field">
+                <label for="contact-collection">Collection Name <span class="optional">optional</span></label>
+                <input id="contact-collection" name="collection" type="text">
+            </div>
+
+            <div class="field">
+                <label for="contact-product">Product Name <span class="optional">optional</span></label>
+                <input id="contact-product" name="product" type="text">
+            </div>
+
+            <div class="field">
+                <label for="contact-subject">Subject</label>
+                <input id="contact-subject" name="subject" type="text" required>
+            </div>
+
+            <div class="field">
+                <label for="contact-body">Body</label>
+                <textarea id="contact-body" name="body" rows="5" required></textarea>
+            </div>
+
+            <div class="form-actions">
+                <button class="submit-button" type="submit">Submit</button>
+                <p class="contact-success" role="status" aria-live="polite"></p>
+            </div>
+
+            <p class="contact-status" role="status" aria-live="polite"></p>
+
+        </form>
+
+    </dialog>
+
+    <script src="assets/temple.js"></script>
+
+</body>
+
+</html>
