@@ -1,1 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Five-Color Collection | SUGi Hair</title>
+
+    <meta name="description" content="The SUGi Hair Five-Color Collection.">
+
+    <meta name="theme-color" content="#F8F4EA">
+
+    <link rel="stylesheet" href="assets/fivecolor.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=Noto+Serif+SC:wght@300;400&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+        <a class="logo gold-text" href="index.html" aria-label="SUGi Hair, home">SUGi Hair</a>
+
+        <nav aria-label="Collections">
+            <a href="fivecolor.html" aria-current="page">Five-Color Collection</a>
+            <a href="temple.html">Temple of Heaven Collection</a>
+            <a href="tea.html">Famous Tea Collection</a>
+        </nav>
+
+    </header>
+
+    <main id="main">
+
+        <section class="page-intro solo">
+
+            <h1 class="gold-text sheen">五彩系 — <span class="nowrap">Five-Color</span> Collection</h1>
+
+            <p class="lede">
+                Inspired by <span lang="zh-Hans">五彩池</span> (Five-Color Pond),
+                the vivid, multicolored pools of Jiuzhaigou.
+            </p>
+
+            <div class="swatches swatches-wrap">
+
+                <figure class="swatch">
+
+                    <div class="swatch-frame">
+                        <img src="images/fivecolor-honey-peach-pink.png"
+                            alt="Honey peach pink"
+                            loading="lazy"
+                            onerror="this.hidden = true">
+                    </div>
+
+                    <figcaption><span lang="zh-Hans">蜜桃粉</span>--Honey Peach Pink</figcaption>
+
+                </figure>
+
+                <figure class="swatch">
+
+                    <div class="swatch-frame">
+                        <img src="images/fivecolor-citrus-peel-orange.png"
+                            alt="Citrus peel orange"
+                            loading="lazy"
+                            onerror="this.hidden = true">
+                    </div>
+
+                    <figcaption><span lang="zh-Hans">陈皮橘</span>--Citrus Peel Orange</figcaption>
+
+                </figure>
+
+                <figure class="swatch">
+
+                    <div class="swatch-frame">
+                        <img src="images/fivecolor-amber-yellow.png"
+                            alt="Amber yellow"
+                            loading="lazy"
+                            onerror="this.hidden = true">
+                    </div>
+
+                    <figcaption><span lang="zh-Hans">琥珀黄</span>--Amber Yellow</figcaption>
+
+                </figure>
+
+                <figure class="swatch">
+
+                    <div class="swatch-frame">
+                        <img src="images/fivecolor-taro-lavender.png"
+                            alt="Taro lavender"
+                            loading="lazy"
+                            onerror="this.hidden = true">
+                    </div>
+
+                    <figcaption><span lang="zh-Hans">山芋紫</span>--Taro Lavender</figcaption>
+
+                </figure>
+
+                <figure class="swatch">
+
+                    <div class="swatch-frame">
+                        <img src="images/fivecolor-agate-red.png"
+                            alt="Agate red"
+                            loading="lazy"
+                            onerror="this.hidden = true">
+                    </div>
+
+                    <figcaption><span lang="zh-Hans">玛瑙红</span>--Agate Red</figcaption>
+
+                </figure>
+
+            </div>
+
+            <div class="brand-story">
+
+                <p class="eyebrow">Brand story</p>
+
+                <p class="brand-line" lang="zh-Hans">色映山水，灵感五彩。</p>
+
+                <p class="lede">Colors reflecting the landscape; inspiration in five hues.</p>
+
+            </div>
+
+            <a class="back-link" href="collections.html">Back to the collection</a>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER / CONTACT -->
+
+    <footer id="contact" class="footer">
+
+        <p class="footer-logo gold-text">SUGi Hair</p>
+
+        <p>Ultra-luxury haircare</p>
+
+        <p>
+            <a class="contact-link" href="mailto:hello@sugihairproducts.com" data-open-contact>Send us a message</a>
+        </p>
+
+        <!-- Replace with your real inquiry address -->
+        <p>hello@sugihairproducts.com</p>
+
+        <small>
+            &copy; <span id="year">2026</span> SUGi Hair. All rights reserved.
+        </small>
+
+    </footer>
+
+    <!-- CONTACT POP-UP -->
+
+    <dialog class="contact-dialog" id="contact-dialog" aria-labelledby="contact-title">
+
+        <!--
+            Messages are not connected to a service yet. Until you paste a form
+            service URL (Formspree, Basin, etc.) into data-endpoint, Submit opens
+            the visitor's email app, addressed to data-mailto.
+        -->
+        <form class="contact-form" method="post" data-endpoint="" data-mailto="hello@sugihairproducts.com" novalidate>
+
+            <button class="contact-close" type="button" data-close-contact>Close</button>
+
+            <h2 id="contact-title" class="gold-text">Contact</h2>
+
+            <p class="lede">Send us a note and we will reply by email.</p>
+
+            <div class="field">
+                <label for="contact-name">Name</label>
+                <input id="contact-name" name="name" type="text" autocomplete="name" required>
+            </div>
+
+            <div class="field">
+                <label for="contact-email">Email</label>
+                <input id="contact-email" name="email" type="email" autocomplete="email" required>
+            </div>
+
+            <div class="field">
+                <label for="contact-collection">Collection Name <span class="optional">optional</span></label>
+                <input id="contact-collection" name="collection" type="text">
+            </div>
+
+            <div class="field">
+                <label for="contact-product">Product Name <span class="optional">optional</span></label>
+                <input id="contact-product" name="product" type="text">
+            </div>
+
+            <div class="field">
+                <label for="contact-subject">Subject</label>
+                <input id="contact-subject" name="subject" type="text" required>
+            </div>
+
+            <div class="field">
+                <label for="contact-body">Body</label>
+                <textarea id="contact-body" name="body" rows="5" required></textarea>
+            </div>
+
+            <div class="form-actions">
+                <button class="submit-button" type="submit">Submit</button>
+                <p class="contact-success" role="status" aria-live="polite"></p>
+            </div>
+
+            <p class="contact-status" role="status" aria-live="polite"></p>
+
+        </form>
+
+    </dialog>
+
+    <script src="assets/fivecolor.js"></script>
+
+</body>
+
+</html>
