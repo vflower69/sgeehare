@@ -132,6 +132,10 @@
 
         </section>
 
+        <div class="explore-all">
+            <a class="gold-button" href="haircare.html">Explore all hair care</a>
+        </div>
+
     </main>
 
     <!-- FOOTER / CONTACT -->
@@ -142,16 +146,80 @@
 
         <p>Ultra-luxury haircare</p>
 
-        <!-- Replace with your real inquiry address -->
         <p>
-            <a class="contact-link" href="mailto:hello@sugihairproducts.com">hello@sugihairproducts.com</a>
+            <a class="contact-link" href="mailto:hello@sugihairproducts.com" data-open-contact>Send us a message</a>
         </p>
+
+        <!-- Replace with your real inquiry address -->
+        <p>hello@sugihairproducts.com</p>
 
         <small>
             &copy; <span id="year">2026</span> SUGi Hair. All rights reserved.
         </small>
 
     </footer>
+
+    <!-- CONTACT POP-UP -->
+
+    <dialog class="contact-dialog" id="contact-dialog" aria-labelledby="contact-title">
+
+        <!--
+            Messages are not connected to a service yet. Until you paste a form
+            service URL (Formspree, Basin, etc.) into data-endpoint, Submit opens
+            the visitor's email app, addressed to data-mailto.
+        -->
+        <form class="contact-form" method="post" data-endpoint="" data-mailto="hello@sugihairproducts.com" novalidate>
+
+            <button class="contact-close" type="button" data-close-contact>Close</button>
+
+            <h2 id="contact-title" class="gold-text">Contact</h2>
+
+            <p class="lede">Send us a note and we will reply by email.</p>
+
+            <div class="field">
+                <label for="contact-name">Name</label>
+                <input id="contact-name" name="name" type="text" autocomplete="name" aria-describedby="contact-name-error" required>
+                <p class="field-error" id="contact-name-error" role="alert"></p>
+            </div>
+
+            <div class="field">
+                <label for="contact-email">Email</label>
+                <input id="contact-email" name="email" type="email" autocomplete="email" aria-describedby="contact-email-error" required>
+                <p class="field-error" id="contact-email-error" role="alert"></p>
+            </div>
+
+            <div class="field">
+                <label for="contact-collection">Collection Name <span class="optional">optional</span></label>
+                <input id="contact-collection" name="collection" type="text">
+            </div>
+
+            <div class="field">
+                <label for="contact-product">Product Name <span class="optional">optional</span></label>
+                <input id="contact-product" name="product" type="text">
+            </div>
+
+            <div class="field">
+                <label for="contact-subject">Subject</label>
+                <input id="contact-subject" name="subject" type="text" aria-describedby="contact-subject-error" required>
+                <p class="field-error" id="contact-subject-error" role="alert"></p>
+            </div>
+
+            <div class="field">
+                <label for="contact-body">Body</label>
+                <textarea id="contact-body" name="body" rows="5" aria-describedby="contact-body-error" required></textarea>
+                <p class="field-error" id="contact-body-error" role="alert"></p>
+            </div>
+
+            <div class="form-actions">
+                <button class="submit-button" type="submit">Submit</button>
+                <p class="contact-success" role="status" aria-live="polite"></p>
+            </div>
+
+            <p class="contact-status" role="status" aria-live="polite"></p>
+
+        </form>
+
+    </dialog>
 
     <script src="assets/collections.js"></script>
 
