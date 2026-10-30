@@ -387,10 +387,6 @@ main > section {
         justify-content: center;
         gap: 0.1rem 1.4rem;
     }
-
-    .header nav a {
-        font-size: 0.8rem;
-    }
 }
 
 /* ---------- Reduced motion ---------- */
@@ -408,4 +404,283 @@ main > section {
     .header nav a::after {
         transition: none;
     }
+}
+
+/* ---------- Contact pop-up ---------- */
+
+body.modal-open {
+    overflow: hidden;
+}
+
+.contact-dialog {
+    width: min(34rem, calc(100vw - 2rem));
+    max-height: calc(100svh - 2rem);
+    margin: auto;
+    padding: 0;
+    overflow-y: auto;
+    border: 1px solid var(--line);
+    border-radius: 0;
+    background: var(--ivory);
+    color: var(--ink);
+}
+
+.contact-dialog[open] {
+    animation: dialog-in 0.25s ease both;
+}
+
+.contact-dialog::backdrop {
+    background: rgba(58, 49, 40, 0.5);
+}
+
+@keyframes dialog-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: none; }
+}
+
+.contact-form {
+    position: relative;
+    padding: clamp(1.75rem, 5vw, 3rem);
+}
+
+.contact-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.25rem;
+    padding: 0.35rem 0;
+    border: 0;
+    background: none;
+    color: var(--gold-text);
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.3em;
+    cursor: pointer;
+}
+
+.contact-close:hover {
+    color: var(--gold-deep);
+}
+
+.contact-form h2 {
+    margin-bottom: 1rem;
+    letter-spacing: -0.005em;
+    font-size: clamp(1.9rem, 4vw, 2.5rem);
+}
+
+.contact-form .lede {
+    margin-bottom: 1.75rem;
+    font-size: 0.95rem;
+}
+
+.field {
+    margin-bottom: 1.25rem;
+}
+
+.field label {
+    display: block;
+    margin-bottom: 0.15rem;
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    color: var(--gold-text);
+}
+
+.field .optional {
+    margin-left: 0.4rem;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    color: var(--ink-soft);
+}
+
+.field input,
+.field textarea {
+    display: block;
+    width: 100%;
+    padding: 0.6rem 0.1rem;
+    border: 0;
+    border-bottom: 1px solid var(--gold-text);
+    border-radius: 0;
+    background: transparent;
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1.5;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.field textarea {
+    min-height: 7rem;
+    resize: vertical;
+}
+
+.field input:focus-visible,
+.field textarea:focus-visible {
+    outline: none;
+    box-shadow: 0 1px 0 var(--gold-deep);
+    border-bottom-color: var(--gold-deep);
+}
+
+/* Red message under an empty required field. The page script fills it for 10 seconds, then empties it. */
+.field-error {
+    margin: 0.35rem 0 0;
+    color: #B3261E;
+    font-size: 0.85rem;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+.field-error:empty {
+    display: none;
+}
+
+.field input[aria-invalid="true"],
+.field textarea[aria-invalid="true"] {
+    border-bottom-color: #B3261E;
+}
+
+.field input[aria-invalid="true"]:focus-visible,
+.field textarea[aria-invalid="true"]:focus-visible {
+    box-shadow: 0 1px 0 #B3261E;
+}
+
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1.25rem;
+    margin-top: 1.75rem;
+}
+
+/* Green confirmation beside Submit. The page script fills it for 10 seconds, then empties it. */
+.contact-success {
+    margin: 0;
+    color: #2E7D32;
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+}
+
+.contact-success:empty {
+    display: none;
+}
+
+.contact-success:not(:empty)::before {
+    content: "\2713";
+    content: "\2713" / "";
+    margin-right: 0.45rem;
+}
+
+.submit-button {
+    padding: 0.7rem 2.1rem;
+    border: 1px solid var(--gold-deep);
+    border-radius: 0;
+    background: var(--gold-deep);
+    color: var(--ivory);
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    line-height: 1.2;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.submit-button:hover,
+.submit-button:focus-visible {
+    background: var(--gold-text);
+    border-color: var(--gold-text);
+}
+
+.submit-button:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+.contact-status {
+    min-height: 1.75rem;
+    margin: 1.25rem 0 0;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+}
+
+@media (max-width: 600px) {
+
+    /* Keep the whole contact form, Submit included, on one phone screen. */
+    .contact-form {
+        padding: 1.5rem;
+    }
+
+    .contact-form h2 {
+        margin-bottom: 0.5rem;
+    }
+
+    .contact-form .lede {
+        margin-bottom: 1.25rem;
+    }
+
+    .field {
+        margin-bottom: 0.8rem;
+    }
+
+    .field input,
+    .field textarea {
+        padding-block: 0.4rem;
+    }
+
+    .field textarea {
+        min-height: 4.5rem;
+    }
+
+    .form-actions {
+        margin-top: 1.25rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .submit-button {
+        transition: none;
+    }
+
+    .contact-dialog[open] {
+        animation: none;
+    }
+}
+
+/* ---------- Explore all hair care ---------- */
+
+.gold-button {
+    display: inline-block;
+    padding: 0.95rem 2.5rem;
+    border: 1px solid var(--gold-text);
+    border-radius: 0;
+    background: transparent;
+    color: var(--gold-text);
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 0.82rem;
+    letter-spacing: 0.12em;
+    line-height: 1.2;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.gold-button:hover,
+.gold-button:focus-visible {
+    background: var(--gold-deep);
+    border-color: var(--gold-deep);
+    color: var(--ivory);
+}
+
+.explore-all {
+    text-align: center;
+    padding: 0 var(--gutter) clamp(4rem, 8vw, 7rem);
 }
