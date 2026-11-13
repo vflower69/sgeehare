@@ -273,12 +273,7 @@
                 and exclusive beauty insights.
             </p>
 
-            <!--
-                Sign-ups are not connected yet. To collect emails, paste your
-                form service's URL (Formspree, Mailchimp, Buttondown, etc.)
-                into data-endpoint below.
-            -->
-            <form class="newsletter-form" data-endpoint="" novalidate>
+<form class="newsletter-form" data-endpoint="https://formspree.io/f/xzerdava" novalidate>
 
                 <label class="visually-hidden" for="email">Email address</label>
 
@@ -287,13 +282,14 @@
                     type="email"
                     autocomplete="email"
                     placeholder="Enter your email address"
+                    aria-describedby="newsletter-status"
                     required>
 
                 <button class="gold-button" type="submit">Join</button>
 
             </form>
 
-            <p class="form-status" role="status" aria-live="polite"></p>
+            <p class="form-status" id="newsletter-status" role="status" aria-live="polite"></p>
 
         </section>
 
@@ -307,10 +303,12 @@
 
         <p>Ultra-luxury haircare</p>
 
-        <!-- Replace with your real inquiry address -->
         <p>
-            <a class="contact-link" href="mailto:hello@sugihairproducts.com">hello@sugihairproducts.com</a>
+            <a class="contact-link" href="mailto:hello@sugihairproducts.com" data-open-contact>Send us a message</a>
         </p>
+
+        <!-- Replace with your real inquiry address -->
+        <p>hello@sugihairproducts.com</p>
 
         <small>
             &copy; <span id="year">2026</span> SUGi Hair. All rights reserved.
@@ -337,12 +335,14 @@
 
             <div class="field">
                 <label for="contact-name">Name</label>
-                <input id="contact-name" name="name" type="text" autocomplete="name" required>
+                <input id="contact-name" name="name" type="text" autocomplete="name" aria-describedby="contact-name-error" required>
+                <p class="field-error" id="contact-name-error" role="alert"></p>
             </div>
 
             <div class="field">
                 <label for="contact-email">Email</label>
-                <input id="contact-email" name="email" type="email" autocomplete="email" required>
+                <input id="contact-email" name="email" type="email" autocomplete="email" aria-describedby="contact-email-error" required>
+                <p class="field-error" id="contact-email-error" role="alert"></p>
             </div>
 
             <div class="field">
@@ -357,16 +357,19 @@
 
             <div class="field">
                 <label for="contact-subject">Subject</label>
-                <input id="contact-subject" name="subject" type="text" required>
+                <input id="contact-subject" name="subject" type="text" aria-describedby="contact-subject-error" required>
+                <p class="field-error" id="contact-subject-error" role="alert"></p>
             </div>
 
             <div class="field">
                 <label for="contact-body">Body</label>
-                <textarea id="contact-body" name="body" rows="5" required></textarea>
+                <textarea id="contact-body" name="body" rows="5" aria-describedby="contact-body-error" required></textarea>
+                <p class="field-error" id="contact-body-error" role="alert"></p>
             </div>
 
             <div class="form-actions">
                 <button class="submit-button" type="submit">Submit</button>
+                <p class="contact-success" role="status" aria-live="polite"></p>
             </div>
 
             <p class="contact-status" role="status" aria-live="polite"></p>
